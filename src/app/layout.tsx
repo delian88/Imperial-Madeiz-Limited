@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Roboto, Inter, Roboto_Slab } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -22,6 +22,14 @@ const robotoSlab = Roboto_Slab({
   variable: "--font-roboto-slab",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: "#002C5F",
+};
+
 export const metadata: Metadata = {
   title:
     "Imperial Madeiz Limited | Alkebulan City Ghana Smart City & Construction Experts",
@@ -39,12 +47,11 @@ export default function RootLayout({
       lang="en"
       className={`${roboto.variable} ${inter.variable} ${robotoSlab.variable}`}
     >
-      <body className="min-h-screen flex flex-col bg-white text-[#7A7A7A] antialiased">
+      <body className="min-h-screen flex flex-col bg-white text-[#7A7A7A] antialiased overflow-x-hidden w-full max-w-full">
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 w-full max-w-full overflow-x-hidden">{children}</main>
         <Footer />
       </body>
     </html>
   );
 }
-

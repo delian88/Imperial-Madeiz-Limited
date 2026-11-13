@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { COMPANY_INFO } from "@/db/seed-data";
+import { AnimatedText, FadeInBlock } from "@/components/AnimatedText";
 import {
   CheckCircle2,
   ShieldCheck,
@@ -23,15 +24,22 @@ export default function AboutPage() {
       {/* Titlebar Banner (matching sabcltd.com/about-sabc/) */}
       <section className="relative bg-[#002C5F] text-white py-20 px-6 lg:px-12 overflow-hidden">
         <div className="max-w-[1140px] mx-auto relative z-10">
-          <h6 className="font-inter text-xs uppercase tracking-[0.22em] text-[#FFBC7D] font-semibold">
-            WHO WE ARE
-          </h6>
-          <h1 className="text-[42px] sm:text-[54px] font-bold text-white mt-2">
-            About Imperial Madeiz
-          </h1>
-          <h5 className="text-lg sm:text-xl font-inter text-white/85 mt-2 tracking-wide">
-            IMPERIAL MADEIZ LIMITED (MEDEIZ LIMITED) • ALKEBULAN CITY GHANA
-          </h5>
+          <FadeInBlock direction="down">
+            <h6 className="font-inter text-xs uppercase tracking-[0.22em] text-[#FFBC7D] font-semibold">
+              WHO WE ARE
+            </h6>
+          </FadeInBlock>
+          <AnimatedText
+            text="About Imperial Madeiz"
+            as="h1"
+            className="text-[38px] sm:text-[54px] font-bold text-white mt-2 leading-tight"
+            delay={0.1}
+          />
+          <FadeInBlock delay={0.2} direction="up">
+            <h5 className="text-base sm:text-xl font-inter text-white/85 mt-2 tracking-wide">
+              IMPERIAL MADEIZ LIMITED (MEDEIZ LIMITED) • ALKEBULAN CITY GHANA
+            </h5>
+          </FadeInBlock>
         </div>
       </section>
 
@@ -39,81 +47,93 @@ export default function AboutPage() {
       <section className="py-20 px-6 lg:px-12 max-w-[1140px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-7 space-y-6">
-            <p className="text-[19px] text-[#181b31] font-medium leading-relaxed">
-              Imperial Madeiz Limited is a full-service private investment,
-              smart-city development, and building construction company. We
-              offer traditional general consulting and contracting services as
-              well as pre-construction, construction management, and design-and-build
-              services across West Africa.
-            </p>
-            <p className="text-[16px] text-[#54595F] leading-relaxed">
-              Our philosophy is founded upon a clear understanding of our
-              continent&apos;s and clients&apos; requirements from the outset of
-              any landmark initiative—keeping every stakeholder aligned through
-              continuous collaboration with traditional leaders, district
-              assemblies, global investors, and regional EPC contractors.
-            </p>
+            <FadeInBlock direction="up" delay={0.05}>
+              <p className="text-[19px] text-[#181b31] font-medium leading-relaxed">
+                Imperial Madeiz Limited is a full-service private investment,
+                smart-city development, and building construction company. We
+                offer traditional general consulting and contracting services as
+                well as pre-construction, construction management, and design-and-build
+                services across West Africa.
+              </p>
+            </FadeInBlock>
+            <FadeInBlock direction="up" delay={0.1}>
+              <p className="text-[16px] text-[#54595F] leading-relaxed">
+                Our philosophy is founded upon a clear understanding of our
+                continent&apos;s and clients&apos; requirements from the outset of
+                any landmark initiative—keeping every stakeholder aligned through
+                continuous collaboration with traditional leaders, district
+                assemblies, global investors, and regional EPC contractors.
+              </p>
+            </FadeInBlock>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-4">
-              <div className="p-6 bg-[#f8fafc] border-t-4 border-[#002C5F]">
-                <span className="text-xs font-inter uppercase tracking-wider text-[#002C5F] font-bold">
-                  Core Values
-                </span>
-                <h4 className="text-lg font-semibold text-[#181b31] mt-1">
-                  (DICE)
-                </h4>
-                <p className="text-sm text-[#54595F] mt-2">
-                  Dependable, Innovative, Customer-centric, Ethical
-                </p>
-              </div>
-              <div className="p-6 bg-[#f8fafc] border-t-4 border-[#FE5D5B]">
-                <span className="text-xs font-inter uppercase tracking-wider text-[#FE5D5B] font-bold">
-                  Our Vision
-                </span>
-                <h4 className="text-lg font-semibold text-[#181b31] mt-1">
-                  Sustainable Cities
-                </h4>
-                <p className="text-sm text-[#54595F] mt-2">
-                  To be Africa&apos;s most reliable development partner in
-                  delivering sustainable 24-hour smart cities.
-                </p>
-              </div>
-              <div className="p-6 bg-[#f8fafc] border-t-4 border-[#002C5F]">
-                <span className="text-xs font-inter uppercase tracking-wider text-[#002C5F] font-bold">
-                  Our Mission
-                </span>
-                <h4 className="text-lg font-semibold text-[#181b31] mt-1">
-                  2M+ Jobs &amp; Growth
-                </h4>
-                <p className="text-sm text-[#54595F] mt-2">
-                  Providing urban and construction solutions that generate over
-                  two million jobs and 2,000+ SMEs.
-                </p>
-              </div>
+              <FadeInBlock direction="up" delay={0.15}>
+                <div className="p-6 bg-[#f8fafc] border-t-4 border-[#002C5F] h-full shadow-sm hover:shadow-md transition-shadow">
+                  <span className="text-xs font-inter uppercase tracking-wider text-[#002C5F] font-bold">
+                    Core Values
+                  </span>
+                  <h4 className="text-lg font-semibold text-[#181b31] mt-1">
+                    (DICE)
+                  </h4>
+                  <p className="text-sm text-[#54595F] mt-2">
+                    Dependable, Innovative, Customer-centric, Ethical
+                  </p>
+                </div>
+              </FadeInBlock>
+              <FadeInBlock direction="up" delay={0.22}>
+                <div className="p-6 bg-[#f8fafc] border-t-4 border-[#FE5D5B] h-full shadow-sm hover:shadow-md transition-shadow">
+                  <span className="text-xs font-inter uppercase tracking-wider text-[#FE5D5B] font-bold">
+                    Our Vision
+                  </span>
+                  <h4 className="text-lg font-semibold text-[#181b31] mt-1">
+                    Sustainable Cities
+                  </h4>
+                  <p className="text-sm text-[#54595F] mt-2">
+                    To be Africa&apos;s most reliable development partner in
+                    delivering sustainable 24-hour smart cities.
+                  </p>
+                </div>
+              </FadeInBlock>
+              <FadeInBlock direction="up" delay={0.29}>
+                <div className="p-6 bg-[#f8fafc] border-t-4 border-[#002C5F] h-full shadow-sm hover:shadow-md transition-shadow">
+                  <span className="text-xs font-inter uppercase tracking-wider text-[#002C5F] font-bold">
+                    Our Mission
+                  </span>
+                  <h4 className="text-lg font-semibold text-[#181b31] mt-1">
+                    2M+ Jobs &amp; Growth
+                  </h4>
+                  <p className="text-sm text-[#54595F] mt-2">
+                    Providing urban and construction solutions that generate over
+                    two million jobs and 2,000+ SMEs.
+                  </p>
+                </div>
+              </FadeInBlock>
             </div>
           </div>
 
           <div className="lg:col-span-5">
-            <div className="border-4 border-[#002C5F] overflow-hidden shadow-xl bg-white">
-              <img
-                src="/images/delorn-madeiz-hd.jpg"
-                alt="Dr Delorn Madeiz, CEO of Imperial Madeiz Ltd, addressing the gathering at Agave-Dzebetato"
-                className="w-full h-[360px] object-cover object-top"
-              />
-              <div className="p-5 bg-[#002C5F] text-white">
-                <h4 className="text-lg font-semibold text-white">
-                  Dr. Delorn Madeiz
-                </h4>
-                <p className="text-xs font-inter text-[#FFBC7D] uppercase tracking-wider mt-0.5">
-                  Founder &amp; Chief Executive Officer, Imperial Madeiz Ltd
-                </p>
-                <p className="text-xs text-white/85 mt-2 leading-relaxed">
-                  Addressing traditional rulers, district officials, and
-                  community members at the Agave-Dzebetato ground-breaking
-                  ceremony in the South Tongu District, Volta Region.
-                </p>
+            <FadeInBlock direction="left" delay={0.2}>
+              <div className="border-4 border-[#002C5F] overflow-hidden shadow-xl bg-white">
+                <img
+                  src="/images/delorn-madeiz-hd.jpg"
+                  alt="Dr Delorn Madeiz, CEO of Imperial Madeiz Ltd, addressing the gathering at Agave-Dzebetato"
+                  className="w-full h-[360px] object-cover object-top"
+                />
+                <div className="p-5 bg-[#002C5F] text-white">
+                  <h4 className="text-lg font-semibold text-white">
+                    Dr. Delorn Madeiz
+                  </h4>
+                  <p className="text-xs font-inter text-[#FFBC7D] uppercase tracking-wider mt-0.5">
+                    Founder &amp; Chief Executive Officer, Imperial Madeiz Ltd
+                  </p>
+                  <p className="text-xs text-white/85 mt-2 leading-relaxed">
+                    Addressing traditional rulers, district officials, and
+                    community members at the Agave-Dzebetato ground-breaking
+                    ceremony in the South Tongu District, Volta Region.
+                  </p>
+                </div>
               </div>
-            </div>
+            </FadeInBlock>
           </div>
         </div>
       </section>

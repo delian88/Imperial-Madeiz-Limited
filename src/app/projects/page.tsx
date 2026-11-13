@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { getAllProjects } from "@/db";
+import { AnimatedText, FadeInBlock } from "@/components/AnimatedText";
 import { ArrowUpRight, MapPin } from "lucide-react";
 
 export const dynamic = "force-dynamic";
@@ -17,68 +18,76 @@ export default async function ProjectsPage() {
   return (
     <div className="w-full">
       {/* Header (Exact match to sabcltd.com/sabc-projects/) */}
-      <section className="bg-[#002C5F] text-white py-20 px-6 lg:px-12">
+      <section className="bg-[#002C5F] text-white py-20 px-6 lg:px-12 overflow-hidden">
         <div className="max-w-[1140px] mx-auto">
-          <span className="font-inter text-xs uppercase tracking-[0.22em] text-[#FFBC7D] font-semibold">
-            ALKEBULAN CITY GHANA &amp; REGIONAL PORTFOLIO
-          </span>
-          <h1 className="text-[40px] sm:text-[54px] font-bold text-white mt-2">
-            Let&apos;s Build Something Great. Together.
-          </h1>
-          <p className="text-lg sm:text-xl text-white/85 mt-3">
-            We master-plan, design, build, and provide construction management
-            services across West Africa.
-          </p>
+          <FadeInBlock direction="down">
+            <span className="font-inter text-xs uppercase tracking-[0.22em] text-[#FFBC7D] font-semibold">
+              ALKEBULAN CITY GHANA &amp; REGIONAL PORTFOLIO
+            </span>
+          </FadeInBlock>
+          <AnimatedText
+            text="Let's Build Something Great. Together."
+            as="h1"
+            className="text-[36px] sm:text-[54px] font-bold text-white mt-2 leading-tight"
+            delay={0.1}
+          />
+          <FadeInBlock delay={0.2} direction="up">
+            <p className="text-base sm:text-xl text-white/85 mt-3">
+              We master-plan, design, build, and provide construction management
+              services across West Africa.
+            </p>
+          </FadeInBlock>
         </div>
       </section>
 
       {/* Portfolio Grid */}
       <section className="py-20 px-6 lg:px-12 max-w-[1240px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <article
-              key={project.slug}
-              className="group bg-white border border-gray-200 rounded-[6px] overflow-hidden shadow-sm hover:shadow-xl transition-all flex flex-col"
-            >
-              <div className="relative h-64 overflow-hidden bg-[#181b31]">
-                <img
-                  src={project.heroImage}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <span className="absolute top-4 left-4 px-3 py-1 bg-[#002C5F]/90 text-white text-[11px] font-inter uppercase tracking-wider">
-                  {project.categoryLabel}
-                </span>
-              </div>
-
-              <div className="p-6 flex-1 flex flex-col justify-between">
-                <div>
-                  <p className="text-xs font-inter text-[#002C5F] flex items-center gap-1 mb-1.5 font-medium">
-                    <MapPin className="w-3.5 h-3.5 text-[#FE5D5B]" />
-                    {project.location}
-                  </p>
-                  <h2 className="text-xl font-semibold text-[#181b31] group-hover:text-[#002C5F] transition-colors">
-                    {project.title}
-                  </h2>
-                  <p className="text-sm text-[#7A7A7A] mt-2 line-clamp-3 leading-relaxed">
-                    {project.summary}
-                  </p>
+          {projects.map((project, idx) => (
+            <FadeInBlock key={project.slug} direction="up" delay={idx * 0.08}>
+              <article
+                className="group bg-white border border-gray-200 rounded-[6px] overflow-hidden shadow-sm hover:shadow-xl transition-all flex flex-col h-full"
+              >
+                <div className="relative h-64 overflow-hidden bg-[#181b31]">
+                  <img
+                    src={project.heroImage}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <span className="absolute top-4 left-4 px-3 py-1 bg-[#002C5F]/90 text-white text-[11px] font-inter uppercase tracking-wider">
+                    {project.categoryLabel}
+                  </span>
                 </div>
 
-                <div className="pt-5 mt-5 border-t border-gray-100 flex items-center justify-between">
-                  <div className="text-xs font-inter text-[#54595F]">
-                    <strong className="text-[#181b31]">Scale:</strong>{" "}
-                    {project.acreage || "Master Zone"}
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <p className="text-xs font-inter text-[#002C5F] flex items-center gap-1 mb-1.5 font-medium">
+                      <MapPin className="w-3.5 h-3.5 text-[#FE5D5B]" />
+                      {project.location}
+                    </p>
+                    <h2 className="text-xl font-semibold text-[#181b31] group-hover:text-[#002C5F] transition-colors">
+                      {project.title}
+                    </h2>
+                    <p className="text-sm text-[#7A7A7A] mt-2 line-clamp-3 leading-relaxed">
+                      {project.summary}
+                    </p>
                   </div>
-                  <Link
-                    href={`/projects/${project.slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-inter font-semibold uppercase tracking-wider text-[#002C5F] group-hover:text-[#FE5D5B]"
-                  >
-                    Case Study <ArrowUpRight className="w-4 h-4" />
-                  </Link>
+
+                  <div className="pt-5 mt-5 border-t border-gray-100 flex items-center justify-between">
+                    <div className="text-xs font-inter text-[#54595F]">
+                      <strong className="text-[#181b31]">Scale:</strong>{" "}
+                      {project.acreage || "Master Zone"}
+                    </div>
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="inline-flex items-center gap-1.5 text-xs font-inter font-semibold uppercase tracking-wider text-[#002C5F] group-hover:text-[#FE5D5B]"
+                    >
+                      Case Study <ArrowUpRight className="w-4 h-4" />
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </article>
+              </article>
+            </FadeInBlock>
           ))}
         </div>
       </section>
