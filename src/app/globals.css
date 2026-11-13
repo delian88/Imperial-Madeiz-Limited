@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --e-global-color-primary: #002c5f;
+  --e-global-color-secondary: #54595f;
+  --e-global-color-text: #7a7a7a;
+  --e-global-color-accent: #fe5d5b;
+  --color-gradient-start: #002c5f;
+  --color-gradient-stop: #000000;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #7a7a7a;
+  background-color: #ffffff;
+  font-family: var(--font-roboto), "Roboto", sans-serif;
+  overflow-x: hidden;
+}
+
+h1,
+.h1 {
+  color: #181b31;
+  font-weight: 600;
+  line-height: 1.2em;
+}
+
+h2,
+.h2 {
+  color: #181b31;
+  font-weight: 600;
+  line-height: 1.2em;
+}
+
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  color: #181b31;
+  font-weight: 600;
+  line-height: 1.2em;
+}
+
+/* SABC Outlined Marquee Typography */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #181b31;
+}
+
+.text-outline-white {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.7);
+}
+
+/* SABC Modal & Contact Table-Grid Form Borders (exact match to Style 10 on sabcltd.com) */
+.modal-b {
+  border: 1px solid #002c5f;
+}
+
+@media (min-width: 1024px) {
+  .modal-bl-n {
+    border-left: none;
+  }
+  .modal-bb-n {
+    border-bottom: none;
+  }
+}
+
+.modal-p {
+  padding: 20px 16px 15px 20px;
+}
+
+.modal-text {
+  margin: 0;
+  color: #4b4b4c;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* SABC Liquid Button Hover Effects */
+.btn-liquid-y {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-liquid-y .btn-txt-primary {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+    opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-liquid-y .btn-txt-clone {
+  position: absolute;
+  inset: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(105%);
+  transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-liquid-y:hover .btn-txt-primary {
+  transform: translateY(-105%);
+}
+
+.btn-liquid-y:hover .btn-txt-clone {
+  transform: translateY(0%);
+}
+
+/* SABC Fancy Box Style 11 (Services Cards) */
+.lqd-fb-card .lqd-fb-content {
+  background: #ffffff;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+.lqd-fb-card:hover .lqd-fb-content {
+  background: #002c5f;
+}
+
+.lqd-fb-card:hover .lqd-fb-content h2,
+.lqd-fb-card:hover .lqd-fb-content p,
+.lqd-fb-card:hover .lqd-fb-content span,
+.lqd-fb-card:hover .lqd-fb-content svg {
+  color: #ffffff !important;
+}
+
+.lqd-fb-card .lqd-fb-img img {
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lqd-fb-card:hover .lqd-fb-img img {
+  transform: scale(1.08);
+}
+
+/* SABC Highlight Grow Left */
+.lqd-highlight-grow {
+  position: relative;
+  display: inline-block;
+}
+
+.lqd-highlight-grow::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 8px;
+  background-color: rgba(0, 44, 95, 0.12);
+  z-index: -1;
+  transition: height 0.3s ease, background-color 0.3s ease;
+}
+
+.lqd-highlight-grow:hover::after {
+  height: 14px;
+  background-color: rgba(254, 93, 91, 0.22);
+}
+
+/* Vertical Sticky Bar Text */
+.writing-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
